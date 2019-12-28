@@ -1,4 +1,5 @@
 # training-rust-pingcap-talentplan
+I am in no way affiliated with PingCAP.
 Training sourced from https://github.com/pingcap/talent-plan/tree/master/rust (49451b5)
 
 
