@@ -3,30 +3,33 @@
 
 use std::collections::HashMap;
 
+/// Key-value store
+///
+/// Contains datastore and functions to set and get values.
 pub struct KvStore {
     map: HashMap<String, String>,
 }
 
 impl KvStore {
-    // Create new store
+    /// Creates new key-value store.
     pub fn new() -> KvStore {
         KvStore {
             map: HashMap::new(),
         }
     }
 
-    // Set value to a key.
+    /// Save value to key-value store.
     pub fn set(&mut self, key: String, value: String) {
-        panic!()
+        self.map.insert(key, value);
     }
 
-    // Get value of a key.
+    /// Return value from key-value store.
     pub fn get(&mut self, key: String) -> Option<String> {
-        panic!()
+        self.map.get(&key).cloned()
     }
 
-    // Remove key and its value.
+    /// Remove value from key-value store.
     pub fn remove(&mut self, key: String) {
-        panic!()
+        self.map.remove(&key);
     }
 }
