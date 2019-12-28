@@ -9,12 +9,12 @@ fn cli_no_args() {
     Command::cargo_bin("kvs").unwrap().assert().failure();
 }
 
-// `kvs -V` should print the version
+// `kvs -v` should print the version
 #[test]
 fn cli_version() {
     Command::cargo_bin("kvs")
         .unwrap()
-        .args(&["-V"])
+        .args(&["-v"])
         .assert()
         .stdout(contains(env!("CARGO_PKG_VERSION")));
 }
