@@ -1,5 +1,6 @@
+use anyhow::{self, Result};
 use assert_cmd::prelude::*;
-use kvs::{KvStore, Result};
+use kvs::KvStore;
 use predicates::ord::eq;
 use predicates::str::{contains, is_empty, PredicateStrExt};
 use std::process::Command;
@@ -181,6 +182,8 @@ fn cli_invalid_subcommand() {
 #[test]
 fn get_stored_value() -> Result<()> {
     let temp_dir = TempDir::new().expect("unable to create temporary working directory");
+    println!("Writing to path: {:?}", temp_dir.path().join("kvdb.wal"));
+
     let mut store = KvStore::open(temp_dir.path())?;
 
     store.set("key1".to_owned(), "value1".to_owned())?;
